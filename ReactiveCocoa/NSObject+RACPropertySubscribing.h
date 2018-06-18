@@ -48,9 +48,9 @@
 /// completed if self or observer is deallocated.
 #define _RACObserve(TARGET, KEYPATH) \
 ({ \
-    +    __weak id target_ = (TARGET); \
-    +    [target_ rac_valuesForKeyPath:@keypath(TARGET, KEYPATH) observer:self]; \
-    +})
+    __weak id target_ = (TARGET); \
+    [target_ rac_valuesForKeyPath:@keypath(TARGET, KEYPATH) observer:self]; \
+})
 
 #if __clang__ && (__clang_major__ >= 8)
 #define RACObserve(TARGET, KEYPATH) _RACObserve(TARGET, KEYPATH)
